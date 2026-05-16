@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 void printData(unsigned char* data, long dataSize) {
     for (long i = 0; i < (dataSize); i++) {
