@@ -1,6 +1,9 @@
 # ino - minimalistic C image viewer
 
+## Usage
+```./main <file.bmp>```
+
 ## Build command
-bash```gcc src/main.c -o ino -lglfw -lGL -lm```
+```gcc src/main.c -o ino -lglfw -lGL -lm```
 
 ### yes, I know make btw
