@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     // argc == 1 — это имя самой программы (./main)
     // argc == 2 — это имя программы + один аргумент (<var>)
     if (argc != 2) {
-        fprintf(stderr, "Usage: %s <путь_к_файлу_или_строка>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <file_path>\n", argv[0]);
         return 1;
     }
 
@@ -57,6 +57,7 @@ int main(int argc, char *argv[])
     // file <stdio> open
     FILE *image;
     image = fopen(var, "rb");
+    // additional check
     if (!image) {
         printf("Error opening file!\n");
         return 1;
