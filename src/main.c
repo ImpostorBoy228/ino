@@ -13,8 +13,22 @@ void printData(unsigned char* data, long dataSize) {
     printf("\n");
 }
 
-int main(void)
+int main(int argc, char *argv[])
 {
+    // 1. Проверяем, передал ли пользователь ровно один аргумент
+    // argc == 1 — это имя самой программы (./main)
+    // argc == 2 — это имя программы + один аргумент (<var>)
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <путь_к_файлу_или_строка>\n", argv[0]);
+        return 1;
+    }
+
+    char *var = argv[1];
+    if (access(var, F_OK) != 0){
+        printf("'%s' does not exist.\n", var);
+
+    }
+
     GLFWwindow* window;
 
 
@@ -42,7 +56,7 @@ int main(void)
 
     // file <stdio> open
     FILE *image;
-    image = fopen("output.bmp", "rb");
+    image = fopen(var, "rb");
     if (!image) {
         printf("Error opening file!\n");
         return 1;
@@ -120,7 +134,7 @@ int main(void)
         glfwSwapBuffers(window);
     }
 
-    printData(body, dataSize);
+
 
     glfwTerminate();
     free(body);
